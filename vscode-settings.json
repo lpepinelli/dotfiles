@@ -1,0 +1,75 @@
+{
+    // WorkBench
+    "workbench.colorTheme": "Dracula Soft",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.wrapTabs": true,
+
+    // Editor
+    "editor.fontFamily": "'JetBrains Mono', Consolas",
+    "terminal.integrated.fontFamily": "Hack NF",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 20,
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+      90,
+      130
+    ],
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+
+
+    // Extensions
+    "bracketPairColorizer.depreciation-notice": false,
+    "cSpell.language": "en,pt-BR",
+    "tabnine.experimentalAutoImports": true,
+    "better-comments.multilineComments": true,
+    "better-comments.highlightPlainText": true,
+    "better-comments.tags": [
+        {
+          "tag": "!",
+          "color": "#FF2D00",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "?",
+          "color": "#3498DB",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "//",
+          "color": "#474747",
+          "strikethrough": true,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "todo",
+          "color": "#FF8C00",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "*",
+          "color": "#98C379",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        }
+      ]
+}
