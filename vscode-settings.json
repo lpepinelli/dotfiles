@@ -5,7 +5,7 @@
     "workbench.editor.wrapTabs": true,
 
     // Editor
-    "editor.fontFamily": "'JetBrains Mono', Consolas",
+    "editor.fontFamily": "'JetBrains Mono', Cousine",
     "terminal.integrated.fontFamily": "Hack NF",
     "editor.fontSize": 13,
     "editor.lineHeight": 20,
