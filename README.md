@@ -1,4 +1,4 @@
-![cover](https://user-images.githubusercontent.com/43144939/158723467-b3ae3a2a-cf2d-4685-8fcb-e1b05765e89b.png)
+![cover](https://user-images.githubusercontent.com/43144939/158925100-658bbf23-7e95-4efb-865d-6299c8651b37.png)
 
 # ⚙ My personal dotfiles
 My settings for nicely dev experience.
