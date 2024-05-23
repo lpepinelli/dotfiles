@@ -1,0 +1,16 @@
+[window]
+
+opacity = 0.9
+blur=true
+
+padding.x = 8
+padding.y = 10
+
+decorations = "Full"
+
+[font]
+
+normal.family = "JetbrainsMono Nerd Font"
+bold.family = "JetbrainsMono Nerd Font"
+italic.family = "JetbrainsMono Nerd Font"
+bold_italic.family = "JetbrainsMono Nerd Font"
