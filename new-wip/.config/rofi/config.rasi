@@ -1,10 +1,25 @@
 configuration {
-  modes: [ combi ];
-  combi-modes: [ window, drun, run ];
+  modi: "run,drun,window";
+  icon-theme: "Oranchelo";
+  show-icons: true;
+  terminal: "alacritty";
+  drun-display-format: "{icon} {name}";
+  location: 0;
+  disable-history: false;
+  hide-scrollbar: true;
+  display-drun: "   Apps ";
+  display-run: "   Run ";
+  display-window: "   Window";
+  display-Network: " 󰤨  Network";
+  sidebar-mode: true;
   ml-row-up: "Control+k";
   ml-row-down: "Control+j";
 }
 
+@theme "catppuccin-macchiato-custom"
+
+//# Other options
 //@theme "glue_pro_blue"
-@theme "purple"
+//@theme "purple"
 //@theme "iggy"
+

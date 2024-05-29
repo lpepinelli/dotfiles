@@ -7,7 +7,7 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod1
+set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -25,7 +25,7 @@ set $menu dmenu_path | rofi -i -show drun -modi drun -show-icons | xargs swaymsg
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg /home/pepinelli/Pictures/wallp.jpg fill
+output * bg /home/pepinelli/Pictures/wallp.png fill
 #
 # Example configuration:
 #
@@ -36,9 +36,9 @@ output * bg /home/pepinelli/Pictures/wallp.jpg fill
 ### Idle configuration
 # Lock screen after 5 minutes of idle, sleep at 6, lock on sleep
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 00000030 --indicator-idle-visible' \
+         timeout 300 'swaylock -f --indicator-idle-visible' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 00000030 --indicator-idle-visible'
+         before-sleep 'swaylock -f --indicator-idle-visible'
 
 #
 # Example configuration:
@@ -232,28 +232,71 @@ include @sysconfdir@/sway/config.d/*
 
 # Custom Config
 
+## Color Variables
+#### Violet-4
+set $purple #a78bfa
+#### Fuchsia-3
+set $pink #f0abfc
+
+## Sway
 gaps inner 6
-smart_borders on
-hide_edge_borders smart
-client.focused #6d28d9 #8b5cf6 #ffffff
-default_border pixel 2
+smart_borders off
+hide_edge_borders none
+client.focused $pink #8b5cf6 #ffffff $pink $pink
+default_border pixel 1
+
+## Bindings
+bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
+bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
+bindsym $mod+Shift+period exec systemctl suspend
+bindsym XF86Calculator exec gnome-calculator
+
+## Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+input "type:keyboard" { 
+  xkb_layout "us,br"
+  xkb_options grp:win_space_toggle
+} 
+
 
 #for_window [app_id="firefox" title="(Private Browsing)"] move container to workspace $workspace10, workspace $workspace10
 # assign program to workspace
 #for_window [app_id="" title="Signal"] move container to workspace $workspace1 , resize set width 35 ppt , splitv
 #for_window [app_id="Signal"] move container to workspace $workspace1 , resize set width 35 ppt , splitv
-assign [app_id="google-chrome"] → 1
-assign [app_id="alacritty"] → 2
-assign [app_id="slack"] → 3
-assign [app_id="skype"] → 3
 
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="gnome-calculator"] floating enable
+for_window [app_id="gnome-todo"] floating enable
+for_window [app_id="gnome-control-center"] floating enable
+for_window [class="1Password"] floating enable
+for_window [app_id="org.gnome.Nautilus"] floating enable
 
-#workspace "3: "
-#exec slack
-#exec skype
+#for_window [app_id="alacritty"] move container to workspace 2
+#for_window [app_id="code"] move container to workspace 3
 
-##workspace "2: ︁"
+assign [app_id="google-chrome"] → workspace 1
+assign [app_id="code"] → workspace 2
+assign [app_id="alacritty"] → workspace 3
+assign [app_id="slack"] → workspace 4
+assign [app_id="skype"] → workspace 4
+
+#Auto Start
+exec dunst
+exec remmina -i
+
+#workspace "4: "
+exec slack
+exec skype
+exec skype
+
+#workspace "3: ︁"
 exec alacritty
 
-##workspace "1:  "
-#exec google-chrome --password-store=gnome-libsecret
+#workspace "2: </>"
+exec code
+
+#workspace "1:  "
+exec google-chrome --password-store=gnome-libsecret

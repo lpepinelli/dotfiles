@@ -12,39 +12,28 @@
     "margin-top": 5,
     // Choose the order of the modules
     "modules-left": [
-      "sway/workspaces"
+      "sway/workspaces",
+      "wlr/taskbar"
     ],
+    "modules-center": [
+      "custom/weather"
+    ],
+    "sway/window": {
+      "format": "{app_id}"
+    },
     "modules-right": [
       "sway/mode",
       "cpu",
       "memory",
-      "keyboard-state",
       "battery",
-      "battery#bat2",
       "pulseaudio",
       "backlight",
-      //"clock",
-      //"group/date",
-     // "group/time",
-     "tray"
+      "sway/language",
+      "network",
+      "tray",
+      "clock",
+      "custom/wlogout"
     ],
-    "group/date": {
-      "orientation": "vertical",
-      "modules": [
-	"clock",
-	"clock#2",
-	"clock#3"
-      ]
-    },
-    "group/time": {
-      "orientation": "vertical",
-      "modules": [
-	"clock#4",
-	"clock#5",
-	"clock#6"
-      ]
-    },
-
     // Modules configuration
     "sway/workspaces": {
       "disable-scroll": false,
@@ -52,20 +41,21 @@
       "format": "{icon}",
       "format-icons": {
 	"1": "",
-	"2": "",
-	"3": "",
+	"2": "",
+	"3": "",
 	"4": "",
 	"5": ""
       }
     },
-    "keyboard-state": {
-      "numlock": true,
-      "capslock": true,
-      "format": "{name} {icon}",
-      "format-icons": {
-	"locked": "",
-	"unlocked": ""
-      }
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 14,
+      "tooltip-format": "{title}",
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "ignore-list": [
+	"Alacritty"
+      ]
     },
     "sway/mode": {
       "format": "<span style=\"italic\">{}</span>"
@@ -77,78 +67,12 @@
       "tooltip": true,
       "tooltip-format": "{app}: {title}"
     },
-    "mpd": {
-      "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-      "format-disconnected": "Disconnected ",
-      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-      "unknown-tag": "N/A",
-      "interval": 2,
-      "consume-icons": {
-	"on": " "
-      },
-      "random-icons": {
-	"off": "<span color=\"#f53c3c\"></span> ",
-	"on": " "
-      },
-      "repeat-icons": {
-	"on": " "
-      },
-      "single-icons": {
-	"on": "1 "
-      },
-      "state-icons": {
-	"paused": "",
-	"playing": ""
-      },
-      "tooltip-format": "MPD (connected)",
-      "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-	"activated": "",
-	"deactivated": ""
-      }
+    "clock": {
+      "format": "{:%H:%M}  ",
+      "tooltip-format": "{:%A, %d de %B de %Y}"
     },
     "tray": {
-      //"icon-size": 150,
-      "spacing": 10
-    },
-    "clock": {
-	// "timezone": "America/New_York",
-	"interval": 1,
-	"format": "{:%y}",
-	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "clock#2": {
-	// "timezone": "America/New_York",
-	"interval": 1,
-	"format": "{:%b}",
-	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "clock#3": {
-	// "timezone": "America/New_York",
-	"interval": 1,
-	"format": "{:%d}",
-	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "clock#4": {
-	// "timezone": "America/New_York",
-	"interval": 1,
-	"format": "{:%H}",
-	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "clock#5": {
-	// "timezone": "America/New_York",
-	"interval": 1,
-	"format": "{:%M}",
-	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "clock#6": {
-	// "timezone": "America/New_York",
-	"interval": 1,
-	"format": "{:%OS}",
-	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+      "spacing": 8
     },
     "cpu": {
       "interval": 10,
@@ -159,10 +83,7 @@
       "format": "{}%  "
     },
     "temperature": {
-	// "thermal-zone": 2,
-	// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
 	"critical-threshold": 80,
-	// "format-critical": "{temperatureC}°C {icon}",
 	"format": "{temperatureC}°C {icon}",
 	"format-icons": ["", "", ""]
     },
@@ -175,28 +96,20 @@
       "format": "{capacity}% {icon} ",
       "format-charging": "{capacity}% {icon}",
       "format-plugged": "{capacity}% ",
-      "format-alt": "{time} {icon}",
-	// "format-good": "", // An empty format will hide the module
-	// "format-full": "",
-	"format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-      "bat": "BAT2"
+      "format-icons": ["", "", "", "", ""]
     },
     "network": {
-	// "interface": "wlp2*", // (Optional) To force the use of this interface
 	"format-wifi": "{essid} ({signalStrength}%) ",
-	"format-ethernet": "{ipaddr}/{cidr} ",
-	"tooltip-format": "{ifname} via {gwaddr} ",
-	"format-linked": "{ifname} (No IP) ",
-	"format-disconnected": "Disconnected ⚠",
-	"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	"format-ethernet": " 󰈀 ",
+	"tooltip-format": "{ipaddr} 󰩠",
+	"format-linked": "{ifname} (No IP) 󰂭 ",
+	"format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
 	"format": "{volume}% {icon} ",
 	"format-bluetooth": "{volume}% {icon} {format_source}",
 	"format-bluetooth-muted": " {icon} {format_source}",
-	"format-muted": " {format_source}",
+	"format-muted": "  {format_source}",
 	"format-source": "{volume}% ",
 	"format-source-muted": "",
 	"format-icons": {
@@ -225,5 +138,22 @@
       "escape": true,
       "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
 	// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/weather": {
+      "format": "{}°",
+      "tooltip": true,
+      "interval": 3600,
+      "exec": "wttrbar",
+      "return-type": "json"
+    },
+    "sway/language": {
+      "format": "{}",
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "custom/wlogout": {
+      "format": "{icon}  ",
+      "format-icons": "",
+      "interval": "once",
+      "on-click": "wlogout -c 5 -r 5 -p layer-shell"
     }
 }
