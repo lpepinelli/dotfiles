@@ -13,3 +13,4 @@ cp xorg.conf /etc/X11/
 sudo apt-get install libcairo2-dev
 sudo apt install libpango1.0-dev -y
 sudo apt install dunst
+sudo apt install stow
