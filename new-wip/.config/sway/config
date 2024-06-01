@@ -235,8 +235,8 @@ include @sysconfdir@/sway/config.d/*
 ## Color Variables
 #### Violet-4
 set $purple #a78bfa
-#### Fuchsia-3
-set $pink #f0abfc
+#### Pink-3
+set $pink #f9a8d4
 
 ## Sway
 gaps inner 6

@@ -1,7 +1,7 @@
 @define-color purple_border #a78bfa;
-@define-color pink_border #f0abfc;
-@define-color pink_bg #e879f9;
-@define-color pink_hover #f0abfc;
+@define-color pink_border #f9a8d4;
+@define-color pink_bg #f472b6;
+@define-color pink_hover #f9a8d4;
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -49,6 +49,7 @@ background-color: #3F3F3F;
     border-radius: 0px;
     font-size: 40px;
     padding: 0px 10px 0px 10px;
+    margin-right: 3px;
   }
 
   /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -80,7 +81,7 @@ background-color: #3F3F3F;
 
   #workspaces button.urgent {
     background-color: red;
-    color: #ff0000;
+    color: @theme_text_color;
     border-radius: 10px;
   }
 

@@ -1,5 +1,5 @@
 ### How to configure
 ```bash
-  stow -t ~/.config . --adopt
+  stow -t ~/.config .config --adopt
   git restone .
 ```
