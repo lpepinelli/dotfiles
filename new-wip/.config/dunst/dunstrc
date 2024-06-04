@@ -93,7 +93,7 @@ startup_notification = false
 # Dunst verbosity
 verbosity = mesg
 # Corner radius of dunst
-corner_radius = 8
+corner_radius = 6
 # Ignore dbus closeNotification message
 ignore_dbusclose = false
 
