@@ -14,7 +14,10 @@ bold.family = "JetbrainsMono Nerd Font"
 italic.family = "JetbrainsMono Nerd Font"
 bold_italic.family = "JetbrainsMono Nerd Font"
 
-[[keyboard.bindings]]
-action = "ToggleViMode"
-mods = "Control"
-key = "Space"
+[env]
+TERM = "xterm-256color"
+
+# [[keyboard.bindings]]
+# action = "ToggleViMode"
+# mods = "Control"
+# key = "Space"
