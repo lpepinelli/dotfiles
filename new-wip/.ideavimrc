@@ -1,0 +1,110 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+"" -- Vim options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+set clipboard=unnamed plus " Use the system clipboard
+set relativenumber " Enable relative line numbers
+let mapleader=" " " Set the leader key to <Space>
+
+" Normal Mode Key Bindings
+" Navigation
+nmap <C-j> <C-d>
+nmap <C-k> <C-u>
+
+" Switch between buffers
+nmap <S-h> :previous<CR>
+nmap <S-l> :next<CR>
+
+" Splits
+nmap <Leader>v :split<CR>
+"nmap <Leader>s :split<CR>
+
+" Pane navigation
+nmap <Leader>h <C-w>h
+nmap <Leader>j <C-w>j
+nmap <Leader>k <C-w>k
+nmap <Leader>l <C-w>l
+
+" File commands
+nmap <Leader>w :w!<CR>
+nmap <Leader>q :wq!<CR>
+nmap <Leader>x :x!<CR>
+nmap <C-p> :action GotoFile<CR>
+
+" Code actions
+nmap <Leader>f :action ReformatCode<CR>
+nmap gh :action ShowErrorDescription<CR>
+nmap gr :action GotoRelated<CR>
+nmap <Leader>c :action CommentByLineComment<CR>
+nmap [d :action GotoPrevError<CR>
+nmap ]d :action GotoNextError<CR>
+nmap <C-.> :action ShowIntentionActions<CR>
+
+" Visual Mode Key Bindings
+" Stay in visual mode while indenting
+vmap < <gv
+vmap > >gv
+
+" Move selected lines while staying in visual mode
+vmap J :m '>+1<CR>gv=gv
+vmap K :m '<-2<CR>gv=gv
+
+" Toggle comment selection
+vmap <Leader>c :action CommentByLineComment<CR>
+
+" Terminal Controls
+nmap <C-S-a> :action TerminalNextTab<CR>
+nmap <C-S-b> :action TerminalPreviousTab<CR>
+nmap <C-S-j> :action ToggleToolWindow<CR>
+nmap <C-S-n> :action TerminalNewSession<CR>
+nmap <C-S-w> :action TerminalClose<CR>
+
+" File Tree (Sidebar)
+" nmap <C-e> :action ActivateProjectToolWindow<CR>
+nmap <C-e> :NERDTreeToggle<CR>
+nmap n :action NewElement<CR>
+nmap r :action RenameElement<CR>
+nmap <S-n> :action NewFolder<CR>
+" nmap d :action SafeDelete<CR>
+
+" Zen Mode
+nmap <C-S-z> :action ToggleZenMode<CR>
+
+" Line Editing
+nmap <C-S-d> :action EditorDuplicate<CR>
+nmap <A-j> :m .+1<CR>==
+nmap <A-k> :m .-2<CR>==
+vmap <A-j> :m '>+1<CR>gv=gv
+vmap <A-k> :m '<-2<CR>gv=gv
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+" NerdTree
+Plug 'preservim/nerdtree'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
