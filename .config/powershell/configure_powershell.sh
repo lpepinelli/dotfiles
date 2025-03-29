@@ -3,7 +3,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 scoop install curl jq nvm
 winget install --id Git.Git -e --source winget
-scoop install neovim gcc
+scoop install neovim gcc bat
 echo ". $env:USERPROFILE\.config\powershell\user_profile.ps1" > $PROFILE.CurrentUserCurrentHost
 Install-Module posh-git -Scope CurrentUser -Force
 winget install JanDeDobbeleer.OhMyPosh -s winget
