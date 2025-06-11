@@ -12,6 +12,7 @@ alias vim="nvim"
 alias datagrip="datagrip.sh"
 alias cat="batcat"
 alias fzf="fzf --preview 'batcat --color=always --style=numbers --line-range=:500 {}'"
+alias please="gum input --password | sudo -nS"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
